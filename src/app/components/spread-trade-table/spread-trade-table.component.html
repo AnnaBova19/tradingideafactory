@@ -1,0 +1,44 @@
+<div class="ibox-body">
+    <div class="table-responsive row">
+        <table dataTable [tableData]="spreadTrades" [scrollX]="true" [responsive]="false" class="table table-bordered table-hover text-center" id="spreadTradeTable">
+            <thead class="thead-default thead-lg">
+                <tr>
+                  <th>#</th>
+                  <th>Longs</th>
+                  <th>Shorts</th>
+                  <th>Long&nbsp;Entry</th>
+                  <th>Short&nbsp;Entry</th>
+                  <th>Spread</th>
+                  <th>Current&nbsp;Price <br> Long</th>
+                  <th>Current&nbsp;Price <br> Short</th>
+                  <th>Current&nbsp;S</th>
+                  <th>Percentage</th>
+                  <th>Weeks</th>
+                  <th *ngFor="let column of getWeeksColumn(weeksNumber); let i = index">
+                    Week&nbsp;{{i+1}}
+                  </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let spreadTrade of spreadTrades; let i = index">
+                  <td>{{i+1}}</td>
+                  <td>{{spreadTrade.longs}}</td>
+                  <td>{{spreadTrade.shorts}}</td>
+                  <td>{{spreadTrade.long_entry}}</td>
+                  <td>{{spreadTrade.short_entry}}</td>
+                  <td>{{spreadTrade.spread}}</td>
+                  <td>{{spreadTrade.long}}</td>
+                  <td>{{spreadTrade.short}}</td>
+                  <td>{{spreadTrade.current_spread}}</td>
+                  <td [ngClass]="getColorClass(spreadTrade.percentage)">{{spreadTrade.percentage}}%</td>
+                  <td>{{spreadTrade.history.length}}</td>
+                  <td [ngClass]="getColorClass(getWeekPercentage(spreadTrade, j).end_week_percentage)" 
+                      *ngFor="let column of getWeeksColumn(weeksNumber); let j = index">
+                      {{getWeekPercentage(spreadTrade, j).end_week_percentage}}%
+                  </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>
+  

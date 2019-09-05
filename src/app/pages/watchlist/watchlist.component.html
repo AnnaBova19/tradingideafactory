@@ -1,0 +1,19 @@
+<div class="page-content fade-in-up">  
+  <div class="ibox">
+    <div class="ibox-head">
+      <div class="ibox-title">STOCKS</div>
+      <button class="btn btn-success btn-air mr-4" (click)="openNewSpreadTradeDialog()">Add to watch list</button>
+    </div>
+    <div class="tab-content">
+      <app-spread-trade-table [spreadTrades]="spreadTrades" [weeksNumber]="weeksNumber"></app-spread-trade-table>
+    </div>
+  </div> 
+  <div class="ibox">
+    <div class="ibox-head">
+      <div class="ibox-title">FOREX</div>
+    </div>
+    <div class="tab-content">
+      <app-forex-table></app-forex-table>
+    </div>
+  </div> 
+</div>

@@ -1,0 +1,93 @@
+<div id="sidebar-collapse">
+  <ul class="side-menu metismenu">
+    <li routerLinkActive="active">
+      <a routerLink="/portfolio"><i class="sidebar-item-icon fa fa-user"></i><span class="nav-label">My Portfolio</span></a>
+    </li>
+    <!-- <li routerLinkActive="active"><a href="href=&quot;javascript:;&quot;"><i class="sidebar-item-icon fa fa-user"></i><span class="nav-label">My portfolio</span><i class="fa fa-angle-left arrow"></i></a>
+      <ul class="nav-2-level collapse" routerLinkActive="in">
+        <li><a mat-button class="button" (click)="addNewPortfolio()">New Portfolio</a></li>
+      </ul>    
+    </li> -->
+    <li routerLinkActive="active">
+      <a routerLink="/watchlist"><i class="sidebar-item-icon fa fa-eye"></i><span class="nav-label">Watchlist</span></a>
+    </li>
+    <li routerLinkActive="active">
+      <a routerLink="/trading-journal"><i class="sidebar-item-icon fa fa-star"></i><span class="nav-label">Trading Journal</span></a>
+    </li>
+    <li routerLinkActive="active"><a href="href=&quot;javascript:;&quot;"><i class="sidebar-item-icon fa fa-lightbulb-o"></i><span class="nav-label">Idea Generation</span><i class="fa fa-angle-left arrow"></i></a>
+      <ul class="nav-2-level collapse" routerLinkActive="in">
+        <li routerLinkActive="active"><a href="href=&quot;javascript:;&quot;"><span class="nav-label">World views</span><i class="fa fa-angle-left arrow"></i></a>
+          <ul class="nav-3-level collapse" routerLinkActive="in">
+            <li><a routerLink="/idea-generation/world-views/gdp-prediction" routerLinkActive="active">GDP Prediction</a></li>
+            <li routerLinkActive="active"><a href="href=&quot;javascript:;&quot;"><span class="nav-label">Leading Indicators</span><i class="fa fa-angle-left arrow"></i></a>
+              <ul class="nav-4-level collapse" routerLinkActive="in">
+                <li routerLinkActive="active"><a href="href=&quot;javascript:;&quot;"><span class="nav-label">Business</span><i class="fa fa-angle-left arrow"></i></a>
+                  <ul class="nav-5-level collapse" routerLinkActive="in">
+                    <li><a routerLink="/idea-generation/world-views/manufactoring" routerLinkActive="active">Manufacturing</a></li>
+                    <li><a routerLink="/idea-generation/world-views/services" routerLinkActive="active">Services</a></li>
+                  </ul>                  
+                </li>
+                <li><a routerLink="/idea-generation/world-views/consumers" routerLinkActive="active">Consumers</a></li>
+                <li><a routerLink="/idea-generation/world-views/building-permits-housing" routerLinkActive="active">Building Permits/Housing</a></li>
+              </ul>              
+            </li>
+            <li routerLinkActive="active"><a href="href=&quot;javascript:;&quot;"><span class="nav-label">Co-incident Indicators</span><i class="fa fa-angle-left arrow"></i></a>
+              <ul class="nav-4-level collapse" routerLinkActive="in">
+                <li><a routerLink="/idea-generation/world-views/durable-goods" routerLinkActive="active">Durable Goods</a></li>
+                <li><a routerLink="/idea-generation/world-views/non-farm-payrolls" routerLinkActive="active">Non Farm Payrolls</a></li>
+                <li><a routerLink="/idea-generation/world-views/goods-produced" routerLinkActive="active">Goods Produced</a></li>
+                <li><a routerLink="/idea-generation/world-views/total-private" routerLinkActive="active">Total Private</a></li>
+                <li><a routerLink="/idea-generation/world-views/services-produced" routerLinkActive="active">Services Produced</a></li>
+                <li><a routerLink="/idea-generation/world-views/major-industry-groups" routerLinkActive="active">Major Industry Groups</a></li>
+                <li><a routerLink="/idea-generation/world-views/major-market-groups" routerLinkActive="active">Major Market Groups</a></li>
+                <li><a routerLink="/idea-generation/world-views/unemployment-claims" routerLinkActive="active">Unemployment Claims</a></li>
+              </ul>              
+            </li>
+          </ul>
+        </li>
+        <li routerLinkActive="active"><a href="href=&quot;javascript:;&quot;"><span class="nav-label">Industry views</span><i class="fa fa-angle-left arrow"></i></a>
+          <ul class="nav-3-level collapse" routerLinkActive="in">
+            <li><a routerLink="/idea-generation/industry-views/us-undustries" routerLinkActive="active">US Industries</a></li>
+            <li><a routerLink="/idea-generation/industry-views/eu-undustries" routerLinkActive="active">EU Industries</a></li>
+            <li><a routerLink="/idea-generation/industry-views/cn-undustries" routerLinkActive="active">CN Industries</a></li>
+          </ul>
+        <li routerLinkActive="active"><a href="href=&quot;javascript:;&quot;"><span class="nav-label">Stock views</span><i class="fa fa-angle-left arrow"></i></a>
+          <ul class="nav-3-level collapse" routerLinkActive="in">
+            <li><a routerLink="/idea-generation/stock-views/us-stocks" routerLinkActive="active">US Stocks</a></li>
+            <li><a routerLink="/idea-generation/stock-views/eu-stocks" routerLinkActive="active">EU Stocks</a></li>
+            <li><a routerLink="/idea-generation/stock-views/cn-stocks" routerLinkActive="active">CN Stocks</a></li>
+          </ul>
+        </li>
+        <li><a routerLink="/idea-generation/currency-views" routerLinkActive="active">Currency views</a>
+        </li>
+        <li><a routerLink="/idea-generation/commodities-views" routerLinkActive="active">Commodities views</a>
+        </li>
+        <li><a routerLink="/idea-generation/bond-views" routerLinkActive="active">Bond views</a>
+        </li>
+      </ul>
+    </li>
+    <li routerLinkActive="active"><a href="href=&quot;javascript:;&quot;"><i class="sidebar-item-icon fa fa-fire"></i><span class="nav-label">Risk Management</span><i class="fa fa-angle-left arrow"></i></a>
+      <ul class="nav-2-level collapse" routerLinkActive="in">
+        <li><a routerLink="/risk-management/distribution-odds-calculation" routerLinkActive="active">Distribution &amp; Odds</a></li>
+        <li><a routerLink="/risk-management/implied-volatility-assessment" routerLinkActive="active">Implied Volatility</a></li>
+        <li><a routerLink="/risk-management/atr" routerLinkActive="active">ATR</a></li>
+      </ul>
+    </li>
+    <li routerLinkActive="active"><a href="href=&quot;javascript:;&quot;"><i class="sidebar-item-icon fa fa-shield"></i><span class="nav-label">Gate Keeping</span><i class="fa fa-angle-left arrow"></i></a>
+      <ul class="nav-2-level collapse" routerLinkActive="in">
+        <li><a routerLink="/gate-keeping/technical-analysis" routerLinkActive="active">Technical Analysis</a></li>
+        <li><a routerLink="/gate-keeping/price-action" routerLinkActive="active">Price Action</a></li>
+      </ul>
+    </li>
+    <li routerLinkActive="active">
+      <a routerLink="/manual-data"><i class="sidebar-item-icon fa fa-database"></i><span class="nav-label">Manual Data</span></a>
+    </li>
+  </ul>
+  <!-- <div class="sidebar-footer">
+    <a href="javascript:;"><i class="ti-announcement"></i></a>
+    <a routerLink="/calendar"><i class="ti-calendar"></i></a>
+    <a routerLink="/mailbox"><i class="ti-comments"></i></a>
+    <a href="login.html"><i class="ti-power-off"></i></a>
+  </div> -->
+</div>
+

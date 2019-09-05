@@ -1,0 +1,21 @@
+.mat-dialog-actions{
+  display:block;
+  &:last-child{
+    margin-bottom: 0;    
+  }
+  button{
+    margin:0 10px;
+    &.close-button{
+      padding: 0;
+      background: 0 0;
+      border: 0;
+      -webkit-appearance: none;
+    }
+  }
+}
+.mat-dialog-content{
+  max-height: 75vh;  
+}
+.mat-form-field{
+  margin-left: 20px;
+}

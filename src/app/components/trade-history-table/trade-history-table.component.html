@@ -1,0 +1,42 @@
+<div class="ibox-body">
+  <div class="table-responsive row">
+      <table dataTable [tableData]="trades" class="table table-bordered table-hover text-center" id="tradeHistoryTable">
+          <thead class="thead-default thead-lg">
+              <tr>
+                <th>#</th>
+                <th>Asset</th>
+                <th>Symbol</th>
+                <th>Signal</th>
+                <th>Size</th>
+                <th>Current Price</th>
+                <th>Open Price</th>
+                <th>Close Price</th>
+                <th>Stoploss</th>
+                <th>Take Profit</th>
+                <th>Risk</th>
+                <th>Profit</th>
+                <th>Gain</th>
+                <th>Analysis</th>          
+              </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let trade of trades | tradeStatus: status; let i = index">
+              <td>{{i+1}}</td>
+              <td>{{trade.asset_name}}</td>
+              <td>{{trade.asset_symbol}}</td>
+              <td>{{trade.signal}}</td>
+              <td>{{trade.position_size}}</td>
+              <td>{{trade.current_price | currency:'USD':'symbol-narrow'}}</td>
+              <td>{{trade.open_price | currency:'USD':'symbol-narrow'}}</td>
+              <td>{{trade.close_price | currency:'USD':'symbol-narrow'}}</td>
+              <td>{{trade.stop_loss | currency:'USD':'symbol-narrow'}}</td>
+              <td>{{trade.take_profit | currency:'USD':'symbol-narrow'}}</td>
+              <td>{{trade.risk | currency:'USD':'symbol-narrow'}}</td>
+              <td>{{trade.profit | currency:'USD':'symbol-narrow'}}</td>
+              <td>{{trade.gain}}%</td>
+              <td><a class="pdf-link" href="#">PDF</a></td>
+            </tr>                                                             
+        </tbody>
+      </table>
+  </div>
+</div>

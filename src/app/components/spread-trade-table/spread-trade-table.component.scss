@@ -1,0 +1,17 @@
+td{
+  &.positive{
+    font-weight:bold;
+    color:#18c5a9;
+    
+  }
+  &.negative{
+    font-weight:bold;
+    color:#ff4081;
+
+  }
+  &.null{
+    font-weight:bold;
+    color:#5c6bc0;
+
+  }
+}

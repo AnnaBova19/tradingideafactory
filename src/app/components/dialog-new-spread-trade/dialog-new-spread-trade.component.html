@@ -1,0 +1,61 @@
+<mat-dialog-actions  class="text-right">
+    <button mat-dialog-close class="btn close-button"><i class="la la-close la-lg" aria-hidden="true"></i></button>
+  </mat-dialog-actions>
+  <mat-dialog-content>
+    <div class="ibox">
+      <div class="ibox-head">
+          <div class="ibox-title">Create New Spread Trade</div>
+      </div> 
+      <div class="ibox-body">
+        <h6 class="font-strong mb-4">Please enter the details below:</h6>
+        <form [formGroup]="createSpreadTradeForm" (ngSubmit)="createNewSpreadTrade(createSpreadTradeForm.value)" novalidate>
+          <div class="form-group mb-4">
+            <label>Longs</label>
+            <mat-form-field class="example-full-width">
+              <input type="text" aria-label="Number" matInput formControlName="longs" [matAutocomplete]="longsAuto">
+              <mat-autocomplete #longsAuto="matAutocomplete">
+                <mat-option *ngFor="let stock of filteredLongs | async" [value]="stock.symbol">
+                    {{stock.symbol}} &ndash; {{stock.name}}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>           
+            <div class="alert alert-danger alert-bordered" *ngIf="!createSpreadTradeForm.controls['longs'].valid && createSpreadTradeForm.controls['longs'].touched">
+              Choose the stock
+            </div>
+          </div>   
+          <div class="form-group mb-4">
+            <label>Shorts</label>
+            <mat-form-field class="example-full-width">
+              <input type="text" aria-label="Number" matInput formControlName="shorts" [matAutocomplete]="shortsAuto">
+              <mat-autocomplete #shortsAuto="matAutocomplete">
+                <mat-option *ngFor="let stock of filteredShorts | async" [value]="stock.symbol">
+                    {{stock.symbol}} &ndash; {{stock.name}}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>           
+            <div class="alert alert-danger alert-bordered" *ngIf="!createSpreadTradeForm.controls['shorts'].valid && createSpreadTradeForm.controls['shorts'].touched">
+              Choose the stock
+            </div>
+          </div> 
+          <div class="form-group mb-4">
+            <label>Long entry</label>
+            <input type="text" formControlName="long_entry" class="form-control form-control-solid">
+            <div class="alert alert-danger alert-bordered" *ngIf="!createSpreadTradeForm.controls['long_entry'].valid && createSpreadTradeForm.controls['long_entry'].touched">
+              Enter long entry
+            </div>
+          </div>  
+          <div class="form-group mb-4">
+            <label>Short entry</label>
+            <input type="text" formControlName="short_entry" class="form-control form-control-solid">
+            <div class="alert alert-danger alert-bordered" *ngIf="!createSpreadTradeForm.controls['short_entry'].valid && createSpreadTradeForm.controls['short_entry'].touched">
+              Enter short entry
+            </div>
+          </div>   
+        </form>
+      </div>       
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions class="text-center footer-dialog-button">
+    <button mat-dialog-close class="btn btn-secondary btn-air">Close</button>
+    <button class="btn btn-success btn-air" (click)="createNewSpreadTrade(createSpreadTradeForm.value)" [disabled]="!createSpreadTradeForm.valid">Save Changes</button>
+  </mat-dialog-actions>

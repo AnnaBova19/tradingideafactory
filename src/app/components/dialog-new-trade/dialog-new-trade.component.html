@@ -1,0 +1,115 @@
+<mat-dialog-actions  class="text-right">
+    <button mat-dialog-close class="btn close-button"><i class="la la-close la-lg" aria-hidden="true"></i></button>
+  </mat-dialog-actions>
+  <mat-dialog-content>
+    <div class="ibox">
+      <div class="ibox-head">
+          <div class="ibox-title">Create New Trade</div>
+      </div> 
+      <div class="ibox-body">
+        <h6 class="font-strong mb-4">Please enter the details below:</h6>
+        <form [formGroup]="createTradeForm" (ngSubmit)="createNewTrade(createTradeForm.value)" novalidate>
+          <div class="form-group mb-4">
+            <label>Date</label>
+            <mat-form-field>
+              <input matInput [matDatepicker]="picker1" formControlName="date">
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+            <div class="alert alert-danger alert-bordered" *ngIf="!createTradeForm.controls['date'].valid && createTradeForm.controls['date'].touched">
+              Choose the date
+            </div>
+          </div>   
+          <div class="form-group mb-4">
+            <label>Asset</label>
+            <select *ngIf="assets && assets.length>0" formControlName="asset_name" class="form-control form-control-solid">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+            <div class="alert alert-danger alert-bordered" *ngIf="(assets && assets.length>0) && !createTradeForm.controls['asset_name'].valid && createTradeForm.controls['asset_name'].touched">
+              Choose an asset name
+            </div>
+            <input *ngIf="!assets.length" type="text" formControlName="asset_name" class="form-control form-control-solid">
+            <div class="alert alert-danger alert-bordered" *ngIf="!assets.length && !createTradeForm.controls['asset_name'].valid && createTradeForm.controls['asset_name'].touched">
+              Enter an asset name
+            </div>            
+          </div>  
+          <div class="form-group mb-4">
+            <label>Direction</label>
+            <select formControlName="direction" class="form-control form-control-solid">
+              <option [value]="undefined" disabled selected></option>
+              <option *ngFor="let item of directions" [value]="item">{{item}}</option>
+            </select>
+            <div class="alert alert-danger alert-bordered" *ngIf="!createTradeForm.controls['direction'].valid && createTradeForm.controls['direction'].touched">
+              Choose direction
+            </div>
+          </div>  
+          <div class="form-group mb-4">
+            <label>Position size</label>
+            <input type="number" formControlName="position_size" class="form-control form-control-solid">
+            <div class="alert alert-danger alert-bordered" *ngIf="!createTradeForm.controls['position_size'].valid && createTradeForm.controls['position_size'].touched">
+              Enter position size
+            </div>
+          </div>  
+          <div class="form-group mb-4">
+            <label>Current price</label>
+            <input type="text" formControlName="current_price" class="form-control form-control-solid">
+            <div class="alert alert-danger alert-bordered" *ngIf="!createTradeForm.controls['current_price'].valid && createTradeForm.controls['current_price'].touched">
+              Enter current price. It should be a number
+            </div>
+          </div> 
+          <div class="form-group mb-4">
+            <label>Open price</label>
+            <input type="text" formControlName="open_price" class="form-control form-control-solid">
+            <div class="alert alert-danger alert-bordered" *ngIf="!createTradeForm.controls['open_price'].valid && createTradeForm.controls['open_price'].touched">
+              Enter open price. It should be a number
+            </div>
+          </div> 
+          <div class="form-group mb-4">
+            <label>Stop target</label>
+            <select formControlName="stop_target" class="form-control form-control-solid">
+              <option [value]="undefined" disabled selected></option>
+              <option value="1">1</option>
+            </select>
+          </div> 
+          <div class="form-group mb-4">
+            <label>Soft profit target</label>
+            <input type="text" formControlName="soft_profit_target" class="form-control form-control-solid">
+          </div> 
+          <div class="form-group mb-4">
+            <label>Exposure</label>
+            <input type="text" formControlName="exposure" class="form-control form-control-solid">
+          </div> 
+          <div class="form-group mb-4">
+            <label>Profit</label>
+            <input type="text" formControlName="profit" class="form-control form-control-solid">
+          </div>  
+          <div class="form-group mb-4">
+            <label>Status</label>
+            <select formControlName="status" class="form-control form-control-solid">
+              <option [value]="undefined" disabled selected></option>
+              <option *ngFor="let item of status" [value]="item">{{item}}</option>
+            </select>
+            <div class="alert alert-danger alert-bordered" *ngIf="!createTradeForm.controls['status'].valid && createTradeForm.controls['status'].touched">
+              Choose status
+            </div>
+          </div> 
+          <div class="form-group mb-4">
+            <label>Trading</label>
+            <select formControlName="trading" class="form-control form-control-solid">
+              <option [value]="undefined" disabled selected></option>
+              <option *ngFor="let item of tradings" [value]="item">{{item}}</option>
+            </select>
+            <div class="alert alert-danger alert-bordered" *ngIf="!createTradeForm.controls['trading'].valid && createTradeForm.controls['trading'].touched">
+              Choose trading
+            </div>
+          </div>  
+        </form>
+      </div>       
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions class="text-center footer-dialog-button">
+    <button mat-dialog-close class="btn btn-secondary btn-air">Close</button>
+    <button class="btn btn-success btn-air" (click)="createNewTrade(createTradeForm.value)" [disabled]="!createTradeForm.valid">Save changes</button>
+  </mat-dialog-actions>

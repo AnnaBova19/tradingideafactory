@@ -1,0 +1,16 @@
+a{
+  &.button{
+    color: #b4bcc8;
+    &:hover{
+      color: #fff;
+      background-color: #425c78;      
+    }
+  }
+}
+.overlay{
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+}

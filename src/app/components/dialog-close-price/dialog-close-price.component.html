@@ -1,0 +1,37 @@
+<mat-dialog-actions  class="text-right">
+  <button mat-dialog-close class="btn close-button"><i class="la la-close la-lg" aria-hidden="true"></i></button>
+</mat-dialog-actions>
+<mat-dialog-content>
+  <div class="ibox">
+    <div class="ibox-head">
+        <div class="ibox-title">Close Trade</div>
+    </div> 
+    <div class="ibox-body"> 
+      <h6 class="font-strong mb-4">Please enter the details below:</h6>
+      <form [formGroup]="closeTradeForm" (ngSubmit)="closeTrade(closeTradeForm.value)" novalidate>
+        <div class="form-group mb-4">
+          <label>Closed Price</label>
+          <div class="input-group">
+            <input  type="text" formControlName="close_price" class="form-control form-control-solid" placeholder="Enter closed price">
+            <div class="input-group-btn">
+              <select formControlName="currency" class="form-control form-control-solid">
+                <option [value]="undefined" disabled selected></option>
+                <option *ngFor="let item of currencies" [value]="item">{{item}}</option>
+              </select>    
+            </div>
+          </div>
+          <div class="alert alert-danger alert-bordered" *ngIf="!closeTradeForm.controls['close_price'].valid && closeTradeForm.controls['close_price'].touched">
+            Close price is required and should be a number
+          </div>
+          <div class="alert alert-danger alert-bordered" *ngIf="!closeTradeForm.controls['currency'].valid && closeTradeForm.controls['currency'].touched">
+            Choose a currency
+          </div>
+        </div>  
+      </form>
+    </div>       
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions class="text-center footer-dialog-button">
+  <button mat-dialog-close class="btn btn-secondary btn-air">Close</button>
+  <button class="btn btn-success btn-air" (click)="closeTrade(closeTradeForm.value)" [disabled]="!closeTradeForm.valid">Save Changes</button>
+</mat-dialog-actions>
